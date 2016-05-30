@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+    </style>
+
+    <style name="BtnLogin">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#5c5757</item>
+    </style>
+
+    <style name="BtnSalvar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#5c5757</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TextoLogin">
+        <item name="android:layout_height">@dimen/alturaEditText</item>
+        <item name="android:layout_width">@dimen/larguraEditText</item>
+        <item name="android:background">@color/corFundoTextoLogin</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/corTextoLogin</item>
+        <item name="android:fontFamily">Verdana</item>
+        <item name="android:layout_marginBottom">@dimen/distanciaEditText</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="TextoLinkCadastro">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textColor">#0315e1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+</resources>
