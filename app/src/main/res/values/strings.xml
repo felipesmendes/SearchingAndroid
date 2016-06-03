@@ -11,4 +11,5 @@
     <string name="title_activity_cerca">CercaActivity</string>
     <string name="TextoAfastamento">Afastamento (Metros)</string>
     <string name="TextoCerca">Nome da Cerca</string>
+    <string name="BtnAdd">Add Item</string>
 </resources>

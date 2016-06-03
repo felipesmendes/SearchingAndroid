@@ -19,4 +19,16 @@
         >
 
     </ListView>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:textColor="#FFFFFF"
+        android:text="@string/BtnAdd"
+        android:id="@+id/button2"
+        android:background="@drawable/botao_redondo"
+        android:layout_alignBottom="@+id/Listagem"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="137dp"
+        android:onClick="addItem"/>
 </RelativeLayout>
