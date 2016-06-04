@@ -13,27 +13,26 @@
     tools:showIn="@layout/activity_cerca">
 
     <WebView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/webViewCerca" />
+        android:id="@+id/webViewCerca"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/editText3"
-        android:hint="@string/TextoCerca"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="127dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        style="@style/EditTxtCerca"
+        android:hint="@string/TextoCerca" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/editText4"
-        android:hint="@string/TextoAfastamento"
-        android:width="200dp"
-        android:layout_alignTop="@+id/editText3"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="48dp" />
+        style="@style/EditTxtAfastamento"
+        android:hint="@string/TextoAfastamento" />
+
+    <Button
+        android:id="@+id/addCerca"
+        style="@style/BtnRedondo"
+        android:text="@string/TextoSalvar"
+        android:layout_alignEnd="@+id/editText3"
+        android:layout_alignTop="@+id/editText4"
+        android:onClick="SalvarCerca"/>
+
 </RelativeLayout>

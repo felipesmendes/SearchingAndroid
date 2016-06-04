@@ -29,13 +29,9 @@
             android:label="@string/title_activity_listagem"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MapActivity"
-            android:label="@string/title_activity_map"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
             android:name=".CercaActivity"
             android:label="@string/title_activity_cerca"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

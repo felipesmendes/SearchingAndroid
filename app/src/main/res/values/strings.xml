@@ -2,14 +2,21 @@
     <string name="app_name">Searching</string>
     <string name="action_settings">Settings</string>
     <string name="esqueciTexto"><u>Esqueci minha senha</u> </string>
-    <string name="title_activity_cadastro_item">CadastroItemActivity</string>
-    <string name="title_activity_listagem">ListagemActivity</string>
-    <string name="TextoCadastrese">Cadastre-se</string>
+    <string name="title_activity_cadastro_item">Cadastro de Item</string>
+    <string name="title_activity_listagem">Listagem</string>
+    <string name="TextoCadastrese"><u>Cadastre-se</u></string>
     <string name="TextoLogin">Login</string>
     <string name="TextoSalvar">Salvar</string>
-    <string name="title_activity_map">MapActivity</string>
-    <string name="title_activity_cerca">CercaActivity</string>
+    <string name="title_activity_map">Mapa</string>
+    <string name="title_activity_cerca">Cerca</string>
     <string name="TextoAfastamento">Afastamento (Metros)</string>
     <string name="TextoCerca">Nome da Cerca</string>
     <string name="BtnAdd">Add Item</string>
+    <string name="AddItem">Add Item</string>
+    <string-array name="serialItens">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+    </string-array>
 </resources>

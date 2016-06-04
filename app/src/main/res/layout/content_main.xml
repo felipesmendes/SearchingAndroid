@@ -4,51 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fundoTela"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    android:background="@color/fundoTela"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.home.searching.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/searching_logo"
-        android:layout_gravity="center"
-        android:id="@+id/imageView" />
+        android:id="@+id/imageView"
+        style="@style/MainLogo" />
 
     <EditText
-        style="@style/TextoLogin"
-        android:id="@+id/editText" />
+        android:id="@+id/editText"
+        style="@style/TextoLogin" />
 
     <EditText
-        style="@style/TextoLogin"
-        android:id="@+id/editText2" />
+        android:id="@+id/editText2"
+        style="@style/TextoLogin" />
 
     <Button
-        style="@style/BtnLogin"
-        android:text="@string/TextoLogin"
         android:id="@+id/button"
-        android:onClick="Login"/>
+        style="@style/BtnLogin"
+        android:onClick="Login"
+        android:text="@string/TextoLogin" />
 
     <TextView
+        android:id="@+id/textView"
         style="@style/TextoLinkCadastro"
         android:layout_marginTop="40dp"
-        android:text="@string/esqueciTexto"
-        android:id="@+id/textView"
-
-        android:textColor="#0315e1" />
+        android:text="@string/esqueciTexto" />
 
     <TextView
+        android:id="@+id/textView2"
         style="@style/TextoLinkCadastro"
         android:layout_marginTop="10dp"
-        android:text="@string/TextoCadastrese"
-        android:id="@+id/textView2"
-         />
+        android:text="@string/TextoCadastrese" />
 
 
 </LinearLayout>
