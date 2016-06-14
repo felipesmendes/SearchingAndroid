@@ -14,9 +14,9 @@
     <string name="BtnAdd">Add Item</string>
     <string name="AddItem">Add Item</string>
     <string-array name="serialItens">
-        <item>Item 1</item>
-        <item>Item 2</item>
-        <item>Item 3</item>
-        <item>Item 4</item>
+        <item>33499223342</item>
+        <item>64998472</item>
+        <item>3945637</item>
+        <item>6996</item>
     </string-array>
 </resources>
