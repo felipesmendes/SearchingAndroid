@@ -1,21 +1,30 @@
 package com.home.searching;
 
 import android.os.Bundle;
+import Util.Constants;
+import Util.User;
+
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.*;
 import com.firebase.client.*;
+import com.firebase.*;
+
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Firebase myFirebaseRef;
-    EditText username;
+    private Firebase FirebaseRef;
+    EditText email;
+    EditText password;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +32,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        email = (EditText)findViewById(R.id.editTxtLogin);
+        password = (EditText)findViewById(R.id.editTxtSenha);
+
+        //Firebase
         Firebase.setAndroidContext(this);
-        myFirebaseRef = new Firebase("https://torrid-inferno-78.firebaseio.com/");
+        FirebaseRef = new Firebase(Constants.FIREBASE_URL);
 
-        username = (EditText)findViewById(R.id.editTxtLogin);
-
-        myFirebaseRef.child("Item").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                username.setText((String) snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
-            }
-            @Override public void onCancelled(FirebaseError error) { }
-        });
     }
 
     @Override
@@ -61,16 +66,38 @@ public class MainActivity extends AppCompatActivity {
 
     public void Login(View view) {
 
-        EditText username = (EditText)findViewById(R.id.editTxtLogin);
-        // Stores Password
-        EditText password = (EditText)findViewById(R.id.editTxtSenha);
 
 
+        String emailStr = email.getText().toString().trim();
+        String passStr = password.getText().toString().trim();
+
+        if (emailStr.isEmpty() || passStr.isEmpty()) {
+            Toast.makeText(this, "Email ou Senha vazios.", Toast.LENGTH_LONG).show();
+        } else {
+
+            final String emailAddress = emailStr;
+
+
+            FirebaseRef.authWithPassword(emailAddress, passStr, new Firebase.AuthResultHandler() {
+                @Override
+                public void onAuthenticated(AuthData authData) {
+
+                    user = new User(authData.getUid(), emailAddress);
+                    Intent i = new Intent(MainActivity.this, ListagemActivity.class);
+                    startActivity(i);
+
+                }
+                @Override
+                public void onAuthenticationError(FirebaseError firebaseError) {
+                    Toast.makeText(MainActivity.this, "Problema de autenticação." +
+                            "Email ou senha errados.", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
 
         // Validates the User name and Password for admin, admin
         //if (username.getText().equals("admin") && password.getText().equals("admin")) {}
 
-        Intent i = new Intent(MainActivity.this, ListagemActivity.class);
-        startActivity(i);
+
     }
 }

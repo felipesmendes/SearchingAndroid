@@ -13,6 +13,7 @@
     <string name="TextoCerca">Nome da Cerca</string>
     <string name="BtnAdd">Add Item</string>
     <string name="AddItem">Add Item</string>
+    <string name="erro_login">Erro na autenticação. Email ou senha devem estar errados.</string>
     <string-array name="serialItens">
         <item>Item 1</item>
         <item>Item 2</item>

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class ListagemActivity extends AppCompatActivity {
 
@@ -16,6 +17,8 @@ public class ListagemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_listagem);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Toast.makeText(this, "Email ou Senha vazios.", Toast.LENGTH_LONG).show();
 
     }
 
