@@ -25,8 +25,10 @@ public class ListagemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_listagem);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         mRealm = Realm.getDefaultInstance();
 
+        //recupear itens do Realm e os carrega no ListView
         RealmResults<Item> itens = mRealm.where(Item.class).findAll();
         ArrayAdapter<Item> adapter =
                 new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, itens);
@@ -36,7 +38,8 @@ public class ListagemActivity extends AppCompatActivity {
 
         final ListView listViewListener = listView;
 
-        // ListView Item Click Listener
+        // Captura clique em item do listview
+        //Invoca a tela CercaActivity com o item clicado
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -71,5 +74,4 @@ public class ListagemActivity extends AppCompatActivity {
         super.onDestroy();
         mRealm.close();
     }
-
 }

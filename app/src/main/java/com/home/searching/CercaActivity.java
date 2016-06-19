@@ -11,6 +11,7 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import Util.Constants;
 import entidades.Item;
 import io.realm.Realm;
 
@@ -29,6 +30,7 @@ public class CercaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //setando webview
         mWebview = (WebView) findViewById(R.id.webViewCerca);
         mWebview.getSettings().setJavaScriptEnabled(true); // enable javascript
 
@@ -38,12 +40,18 @@ public class CercaActivity extends AppCompatActivity {
         //recuperando Item
         Bundle b = getIntent().getExtras();
 
-        mRealm.beginTransaction();
-
+        //por segurança confere se foram enviados dados
         if (b != null) {
+
+            //recupera item do Realm
+            mRealm.beginTransaction();
             item = mRealm.where(Item.class).equalTo("ID", b.getInt("ID")).findFirst();
+            mRealm.commitTransaction();
+
+            //carrega os elementos da tela a partir do Item
             itemNomeTxtView.setText(item.getNome());
-        } else {
+            String mapHtml = Constants.mapUrl(item.getSerial());
+            mWebview.loadData(mapHtml, "text/html", null);
 
         }
 
@@ -55,15 +63,9 @@ public class CercaActivity extends AppCompatActivity {
                 Toast.makeText(activity, description, Toast.LENGTH_SHORT).show();
             }
         });
-
-        mWebview.loadUrl("https://www.google.com.br/maps");
-
-        mRealm.commitTransaction();
     }
 
-    public void SalvarCerca(View view) {
-        //logica para salvar a cerca
-
+    public void Ok(View view) {
         Intent i = new Intent(this, ListagemActivity.class);
         startActivity(i);
         finish();
@@ -71,9 +73,11 @@ public class CercaActivity extends AppCompatActivity {
 
     public void DeletarItem(View view) {
 
+        //exclui item do Realm
         mRealm.beginTransaction();
         mRealm.where(Item.class).equalTo("ID", item.getID()).findFirst().removeFromRealm();
         mRealm.commitTransaction();
+
         finish();
     }
 

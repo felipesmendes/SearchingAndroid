@@ -1,29 +1,24 @@
 package com.home.searching;
 
-import android.os.Bundle;
-import Util.Constants;
-import Util.User;
-
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.*;
-import com.firebase.client.*;
-import io.realm.Realm;
 
-import com.firebase.*;
-import java.util.Map;
+import com.firebase.client.*;
+
+import android.os.Bundle;
+
+import Util.Constants;
+import Util.User;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private Firebase FirebaseRef;
-    private Realm mRealm;
     EditText email;
     EditText password;
     User user;
@@ -35,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        email = (EditText)findViewById(R.id.editTxtLogin);
-        password = (EditText)findViewById(R.id.editTxtSenha);
+        email = (EditText) findViewById(R.id.editTxtLogin);
+        password = (EditText) findViewById(R.id.editTxtSenha);
 
         //Firebase
         Firebase.setAndroidContext(this);
@@ -44,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //metodos gerados automaticamente
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -66,9 +62,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //login realizado através do Firebase
+    //Conta para testes:
+    //login admin@searching.com
+    //senha 123321
     public void Login(View view) {
-
-
 
         String emailStr = email.getText().toString().trim();
         String passStr = password.getText().toString().trim();
@@ -79,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
             final String emailAddress = emailStr;
 
-
             FirebaseRef.authWithPassword(emailAddress, passStr, new Firebase.AuthResultHandler() {
                 @Override
                 public void onAuthenticated(AuthData authData) {
@@ -89,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(i);
 
                 }
+
                 @Override
                 public void onAuthenticationError(FirebaseError firebaseError) {
                     Toast.makeText(MainActivity.this, "Problema de autenticação." +
@@ -96,10 +94,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-
-        // Validates the User name and Password for admin, admin
-        //if (username.getText().equals("admin") && password.getText().equals("admin")) {}
-
-
     }
 }

@@ -13,8 +13,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+
 import java.util.HashMap;
 import java.util.Map;
+
 import entidades.Item;
 import io.realm.Realm;
 
@@ -32,6 +34,7 @@ public class CadastroItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_item);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         mRealm = Realm.getDefaultInstance();
 
     }
@@ -42,12 +45,12 @@ public class CadastroItemActivity extends AppCompatActivity {
         nome = (EditText) findViewById(R.id.CadItem);
         String strnome = nome.getText().toString();
 
-        if (strnome.equals("")){
+        if (strnome.equals("")) {
             Toast.makeText(this, "Nome do item não pode ser vazio.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        mySpinner = (Spinner)findViewById(R.id.serial);
+        mySpinner = (Spinner) findViewById(R.id.serial);
         String serial = mySpinner.getSelectedItem().toString();
 
         //realm
@@ -64,7 +67,7 @@ public class CadastroItemActivity extends AppCompatActivity {
 
         mRealm.commitTransaction();
 
-
+        //carrega proxima tela e enviar ID do item criado
         Intent i = new Intent(this, CercaActivity.class);
         Bundle b = new Bundle();
 
@@ -73,7 +76,6 @@ public class CadastroItemActivity extends AppCompatActivity {
 
         startActivity(i);
         finish();
-
 
     }
 
