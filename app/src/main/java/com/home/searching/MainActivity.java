@@ -15,13 +15,15 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.*;
 import com.firebase.client.*;
-import com.firebase.*;
+import io.realm.Realm;
 
+import com.firebase.*;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     private Firebase FirebaseRef;
+    private Realm mRealm;
     EditText email;
     EditText password;
     User user;

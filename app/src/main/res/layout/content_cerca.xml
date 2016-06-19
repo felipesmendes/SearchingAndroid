@@ -17,22 +17,33 @@
         android:layout_width="match_parent"
         android:layout_height="300dp" />
 
-    <EditText
-        android:id="@+id/editText3"
-        style="@style/EditTxtCerca"
-        android:hint="@string/TextoCerca" />
-
-    <EditText
-        android:id="@+id/editText4"
-        style="@style/EditTxtAfastamento"
-        android:hint="@string/TextoAfastamento" />
-
     <Button
         android:id="@+id/addCerca"
         style="@style/BtnRedondo"
-        android:text="@string/TextoSalvar"
-        android:layout_alignEnd="@+id/editText3"
-        android:layout_alignTop="@+id/editText4"
-        android:onClick="SalvarCerca"/>
+        android:layout_alignTop="@+id/BtnDeletar"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="65dp"
+        android:onClick="SalvarCerca"
+        android:text="@string/TextoOk" />
+
+    <Button
+        android:id="@+id/BtnDeletar"
+        style="@style/BtnRedondo"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/addCerca"
+        android:onClick="DeletarItem"
+        android:text="@string/BtnDelete" />
+
+    <TextView
+        android:id="@+id/NomeItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/webViewCerca"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:typeface="monospace" />
 
 </RelativeLayout>

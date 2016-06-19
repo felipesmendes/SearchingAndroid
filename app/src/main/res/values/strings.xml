@@ -6,7 +6,7 @@
     <string name="title_activity_listagem">Listagem</string>
     <string name="TextoCadastrese"><u>Cadastre-se</u></string>
     <string name="TextoLogin">Login</string>
-    <string name="TextoSalvar">Salvar</string>
+    <string name="TextoOk">Ok</string>
     <string name="title_activity_map">Mapa</string>
     <string name="title_activity_cerca">Cerca</string>
     <string name="TextoAfastamento">Afastamento (Metros)</string>
@@ -14,6 +14,7 @@
     <string name="BtnAdd">Add Item</string>
     <string name="AddItem">Add Item</string>
     <string name="erro_login">Erro na autenticação. Email ou senha devem estar errados.</string>
+    <string name="BtnDelete">Excluir</string>
     <string-array name="serialItens">
         <item>33499223342</item>
         <item>64998472</item>

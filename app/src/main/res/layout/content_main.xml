@@ -20,11 +20,13 @@
 
     <EditText
         android:id="@+id/editTxtLogin"
-        style="@style/TextoLogin" />
+        style="@style/TextoLogin"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/editTxtSenha"
-        style="@style/TextoLogin" />
+        style="@style/TextoLogin"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/button"

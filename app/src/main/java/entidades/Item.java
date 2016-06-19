@@ -1,21 +1,52 @@
 package entidades;
 
-/**
- * Created by Felipe on 13/06/2016.
- */
-public class Item {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
+
+public class Item extends RealmObject {
+
+    @PrimaryKey
+    private int ID;
+
+    @Required
+
     private String nome;
+
+    @Required
     private String serial;
-    public Item() {}
-    public Item(String nome, String serial) {
+
+    public Item() {
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setSerial(String serial) {
+        this.serial = serial;
+    }
+
+    public Item(int ID, String nome, String serial) {
+        this.ID = ID;
         this.nome = nome;
         this.serial = serial;
     }
+
     public String getNome() {
-        return nome;
+        return this.nome;
     }
+
     public String getSerial() {
-        return serial;
+        return this.serial;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 }
 
