@@ -10,6 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.server.converter.StringToIntConverter;
+
+import java.util.ArrayList;
+
 import entidades.Item;
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -30,8 +34,15 @@ public class ListagemActivity extends AppCompatActivity {
 
         //recupear itens do Realm e os carrega no ListView
         RealmResults<Item> itens = mRealm.where(Item.class).findAll();
-        ArrayAdapter<Item> adapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, itens);
+        ArrayList<String> itensFormatados = new ArrayList();
+
+        //carregando uma lista com nomes formatados para exibição na lista
+        for (Item item : itens) {
+            itensFormatados.add(Item.nomeFormatado(item));
+        }
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, itensFormatados);
         ListView listView = (ListView) findViewById(R.id.Listagem);
 
         listView.setAdapter(adapter);
@@ -47,12 +58,13 @@ public class ListagemActivity extends AppCompatActivity {
                                     int position, long id) {
 
                 // ListView Clicked item value
-                Item itemValue = (Item) listViewListener.getItemAtPosition(position);
+                String itemValue = (String) listViewListener.getItemAtPosition(position);
+                String itemId = itemValue.substring(4, itemValue.indexOf("Item")-1);
 
                 Intent intent = new Intent(ListagemActivity.this, CercaActivity.class);
                 Bundle b = new Bundle();
 
-                b.putInt("ID", itemValue.getID());
+                b.putInt("ID", Integer.parseInt(itemId));
                 intent.putExtras(b);
 
                 startActivity(intent);

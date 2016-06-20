@@ -19,6 +19,10 @@ public class Item extends RealmObject {
     public Item() {
     }
 
+    public static String nomeFormatado (Item item) {
+        return "ID: "+ item.getID() + " Item: " + item.getNome() + " Serial: " + item.getSerial();
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
