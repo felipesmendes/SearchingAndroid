@@ -2,15 +2,10 @@ package com.home.searching;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.view.View;
-import android.app.Activity;
 import android.content.Intent;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,28 +20,20 @@ import io.realm.Realm;
 
 public class CercaActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private WebView mWebview;
     private Realm mRealm;
     private TextView itemNomeTxtView;
     Item item;
     private GoogleMap mMap;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cerca);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-        //setando webview
-       // mWebview = (WebView) findViewById(R.id.webViewCerca);
-       // mWebview.getSettings().setJavaScriptEnabled(true); // enable javascript
 
         mRealm = Realm.getDefaultInstance();
 
@@ -64,20 +51,10 @@ public class CercaActivity extends FragmentActivity implements OnMapReadyCallbac
 
             //carrega os elementos da tela a partir do Item
             itemNomeTxtView.setText(item.getNome());
-            String mapHtml = Constants.mapUrl(item.getSerial());
-           // mWebview.loadData(mapHtml, "text/html", null);
 
         }
-
-        final Activity activity = this;
-
-        //em caso de erro no webview
-        /*mWebview.setWebViewClient(new WebViewClient() {
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                Toast.makeText(activity, description, Toast.LENGTH_SHORT).show();
-            }
-        });*/
     }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -95,9 +72,9 @@ public class CercaActivity extends FragmentActivity implements OnMapReadyCallbac
 
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(Double.parseDouble(cordenadas[0]), Double.parseDouble(cordenadas[1]));
-        mMap.addMarker(new MarkerOptions().position(sydney).title(""));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng mark = new LatLng(Double.parseDouble(cordenadas[0]), Double.parseDouble(cordenadas[1]));
+        mMap.addMarker(new MarkerOptions().position(mark).title(item.getNome()));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(mark));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(16), 2000, null);
 
     }

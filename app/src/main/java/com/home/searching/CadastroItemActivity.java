@@ -1,9 +1,6 @@
 package com.home.searching;
 
-import android.app.Application;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -12,17 +9,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.firebase.client.Firebase;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import entidades.Item;
 import io.realm.Realm;
 
 public class CadastroItemActivity extends AppCompatActivity {
 
-    private Firebase firebase;
     private Realm mRealm;
     private EditText nome;
     private Spinner mySpinner;

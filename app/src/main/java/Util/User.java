@@ -1,8 +1,5 @@
 package Util;
 
-/**
- * Created by guivasconcelos on 6/13/16.
- */
 public class User {
 
     private String UID;
