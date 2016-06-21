@@ -46,7 +46,7 @@ public class ListagemActivity extends AppCompatActivity {
 
         final ListView listViewListener = listView;
 
-        // Captura clique em item do listview
+        //Captura clique em item do listview
         //Invoca a tela CercaActivity com o item clicado
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

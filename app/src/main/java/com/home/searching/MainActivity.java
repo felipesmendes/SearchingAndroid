@@ -66,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
     //Conta para testes:
     //login admin@searching.com
     //senha 123321
+    //ou
+    //login user@teste.com
+    //senha 123321
     public void Login(View view) {
 
         String emailStr = email.getText().toString().trim();
