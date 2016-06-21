@@ -91,12 +91,15 @@ public class CercaActivity extends FragmentActivity implements OnMapReadyCallbac
 
         //carrega os elementos da tela a partir do Item
         itemNomeTxtView.setText(item.getNome());
-        String mapHtml = Constants.mapUrl(item.getSerial());
+        String[] cordenadas = Constants.mapUrl(item.getSerial()).split(",");
+
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-19.919007, -43.938678);
+        LatLng sydney = new LatLng(Double.parseDouble(cordenadas[0]), Double.parseDouble(cordenadas[1]));
         mMap.addMarker(new MarkerOptions().position(sydney).title(""));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(16), 2000, null);
+
     }
 
     public void Ok(View view) {
