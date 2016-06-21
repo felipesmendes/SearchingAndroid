@@ -8,9 +8,6 @@ import android.content.Intent;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.google.android.gms.common.server.converter.StringToIntConverter;
 
 import java.util.ArrayList;
 
@@ -34,7 +31,7 @@ public class ListagemActivity extends AppCompatActivity {
 
         //recupear itens do Realm e os carrega no ListView
         RealmResults<Item> itens = mRealm.where(Item.class).findAll();
-        ArrayList<String> itensFormatados = new ArrayList();
+        ArrayList<String> itensFormatados = new ArrayList<>();
 
         //carregando uma lista com nomes formatados para exibição na lista
         for (Item item : itens) {
@@ -59,7 +56,7 @@ public class ListagemActivity extends AppCompatActivity {
 
                 // ListView Clicked item value
                 String itemValue = (String) listViewListener.getItemAtPosition(position);
-                String itemId = itemValue.substring(4, itemValue.indexOf("Item")-1);
+                String itemId = itemValue.substring(4, itemValue.indexOf("Item") - 1);
 
                 Intent intent = new Intent(ListagemActivity.this, CercaActivity.class);
                 Bundle b = new Bundle();
