@@ -10,13 +10,16 @@ public class Item extends RealmObject {
     private int ID;
 
     @Required
-
     private String nome;
 
     @Required
     private String serial;
 
     public Item() {
+    }
+
+    public static String nomeFormatado(Item item) {
+        return "ID: " + item.getID() + " Item: " + item.getNome() + " Serial: " + item.getSerial();
     }
 
     public void setNome(String nome) {

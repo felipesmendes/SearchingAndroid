@@ -1,13 +1,15 @@
 # SearchingAndroid
-Searching App
+Searching App - Android App for Mobile Development Class
 
-## Trabalho de Computação Móvel
+## Stuff used
 
-Login com Firebase.
+Authentication with Firebase.
 
-CRUD de Items com Realm.
+CRUD of Items with Realm.
 
-Uso de ListView e Webview.
+ListView component.
 
-Template layout para butões redondos.
+Google maps api.
+
+Some layout tricks.
 

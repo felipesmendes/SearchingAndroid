@@ -12,10 +12,12 @@
     tools:context="com.home.searching.CercaActivity"
     tools:showIn="@layout/activity_cerca">
 
-    <WebView
-        android:id="@+id/webViewCerca"
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="300dp"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"/>
 
     <Button
         android:id="@+id/addCerca"
@@ -40,7 +42,7 @@
         android:id="@+id/NomeItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/webViewCerca"
+        android:layout_below="@id/map"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:textSize="20sp"
